@@ -44,10 +44,11 @@ User experience! User experience! User experience! The important thing to speak 
 
 **Download**
 
-To use this library, add this to your build.gradle file:
+[![](https://jitpack.io/v/SmartDengg/sug-debounce.svg)](https://jitpack.io/#SmartDengg/sug-debounce)
 
+Step 1. Add it in your root build.gradle at the end of repositories:
 
-```
+```groovy
     allprojects {
         repositories {
             maven { url 'https://jitpack.io' }
@@ -55,12 +56,12 @@ To use this library, add this to your build.gradle file:
     }
 ```
 
-...
+Step 2. Add the dependency
 
-```java
-	dependencies { 
-    	compile ''
-    }
+```groovy
+	dependencies {
+		implementation 'com.github.User:Repo:Tag'
+	}
 ```
 
 **Useage** 
