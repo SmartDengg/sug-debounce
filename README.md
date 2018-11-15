@@ -60,7 +60,7 @@ Step 2. Add the dependency
 
 ```groovy
 	dependencies {
-		implementation 'com.github.User:Repo:Tag'
+		implementation 'com.github.SmartDengg:sug-debounce:1.0.0'
 	}
 ```
 
