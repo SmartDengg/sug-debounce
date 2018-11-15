@@ -82,7 +82,7 @@ Step 2. Add the dependency
 
 You can change the denounce `timeout`, but we recommend 300 ~ 400 ms.
 
-## Debounce VS No-Debounce(video)
+## Debounce VS No-Debounce (video)
 
 
 **Debounce**
