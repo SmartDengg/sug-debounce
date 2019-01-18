@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.smartdengg.sugdebounce.Debounce;
 import com.smartdengg.sugdebounce.DebounceObserver;
+import com.smartdengg.sugdebounce.DebounceSubscription;
 import com.smartdengg.sugdebounce.TextViewAfterTextChangeEvent;
 
 /**
@@ -24,6 +25,7 @@ public class EditTextActivity extends AppCompatActivity {
   static final int NO_DEBOUNCE = 0;
   static final int DEBOUNCE = 1;
   private static final String KEY_TYPE = "TYPE";
+  private DebounceSubscription debounceSubscription;
 
   @IntDef({ NO_DEBOUNCE, DEBOUNCE }) @interface type {
   }
@@ -68,7 +70,7 @@ public class EditTextActivity extends AppCompatActivity {
       case DEBOUNCE:
         setTitle("debounce");
 
-        Debounce.onAfterTextChangedAction(editText, 300,
+        debounceSubscription = Debounce.onAfterTextChangedAction(editText, 300,
             new DebounceObserver<TextViewAfterTextChangeEvent>() {
               @Override public void onError(Throwable throwable) {
 
@@ -80,6 +82,13 @@ public class EditTextActivity extends AppCompatActivity {
             });
 
         break;
+    }
+  }
+
+  @Override protected void onDestroy() {
+    super.onDestroy();
+    if (debounceSubscription != null && !debounceSubscription.isUnsubscribed()) {
+      debounceSubscription.unsubscribe();
     }
   }
 }

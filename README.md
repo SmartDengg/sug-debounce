@@ -60,14 +60,14 @@ Step 2. Add the dependency
 
 ```groovy
     dependencies {
-	implementation 'com.github.SmartDengg:sug-debounce:1.0.0'
+	implementation 'com.github.SmartDengg:sug-debounce:1.1.0'
     }
 ```
 
 **Useage** 
 
 ```java
-    Debounce.onAfterTextChangedAction(textView, 300,
+     DebounceSubscription debounceSubscription = Debounce.onAfterTextChangedAction(textView, 300,
         new DebounceObserver<TextViewAfterTextChangeEvent>() {
           @Override public void onError(Throwable throwable) {
 
@@ -78,6 +78,10 @@ Step 2. Add the dependency
             /*do your search*/
             doSearch(event.editable().toString());
           }
+          
+      // release resource when not needed
+      debounceSubscription..unsubscribe();
+          
 ```
 
 You can change the denounce `timeout`, but we recommend 300 ~ 400 ms.
