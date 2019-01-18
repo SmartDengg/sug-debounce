@@ -5,7 +5,7 @@ package com.smartdengg.sugdebounce;
  * 作者:  dengwei <br>
  * 描述:
  */
-interface DebounceSubscription {
+public interface DebounceSubscription {
 
   DebounceSubscription NONE = new DebounceSubscription() {
 
